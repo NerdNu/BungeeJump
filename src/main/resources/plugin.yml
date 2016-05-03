@@ -1,0 +1,9 @@
+name: BungeeJump
+main: nu.nerd.bungeejump.BungeeJump
+description: Spigot/Bungee Utilities
+author: redwall_hp
+version: ${project.version}
+
+permissions:
+  bungeejump.admin:
+    description: Admin functions

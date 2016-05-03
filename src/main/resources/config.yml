@@ -1,0 +1,14 @@
+debug: false
+switch-message: '§%p has switched to %s'
+
+
+servers:
+- lobby
+- pve
+- creative
+
+
+aliases:
+  lobby: lobby
+  pve: pve
+  creative: creative
