@@ -29,7 +29,6 @@ public class ToCommands implements CommandExecutor {
         }
 
         if (cmd.getName().equalsIgnoreCase("to-server")) {
-            boolean success = false;
             Player target = plugin.getServer().getPlayer(args[0]);
             if (args.length != 2) {
                 sender.sendMessage("Usage: /to-server <player> <server>");
@@ -39,26 +38,17 @@ public class ToCommands implements CommandExecutor {
                 sender.sendMessage("Could not find player");
                 return true;
             }
-            success = plugin.switchServer(target, args[1]);
-            if (!success) {
-                sender.sendMessage("Unknown server");
-            } else {
-                sender.sendMessage(String.format("Sent %s to %s", target.getName(), args[1]));
-            }
+            plugin.switchServer(target, args[1]);
             return true;
         }
 
         if (cmd.getName().equalsIgnoreCase("all-to-server")) {
-            boolean success = false;
             if (args.length != 1) {
                 sender.sendMessage("Usage: /all-to-server <server>");
                 return true;
             }
             for (Player player : plugin.getServer().getOnlinePlayers()) {
-                success = plugin.switchServer(player, args[0]);
-            }
-            if (!success) {
-                sender.sendMessage("Unknown server");
+                plugin.switchServer(player, args[0]);
             }
             return true;
         }

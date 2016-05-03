@@ -28,6 +28,7 @@ public class BungeeJump extends JavaPlugin {
         this.commandInjector = new CommandInjector();
         this.switching = new HashMap<UUID, String>();
         getServer().getMessenger().registerOutgoingPluginChannel(this, "BungeeCord");
+        getServer().getPluginManager().registerEvents(new BungeeJumpListener(), this);
         new ServerCommands();
         new ToCommands();
     }
@@ -48,16 +49,15 @@ public class BungeeJump extends JavaPlugin {
     }
 
 
-    public boolean switchServer(Player player, String server) {
+    public void switchServer(Player player, String server) {
         server = server.toLowerCase();
         for (String s : getConfiguration().getServers()) {
             if (s.equals(server)) {
                 getSwitching().put(player.getUniqueId(), server);
-                sendBungeeMessage(player, "Connect", server);
-                return true;
+                return;
             }
         }
-        return false;
+        sendBungeeMessage(player, "Connect", server);
     }
 
 

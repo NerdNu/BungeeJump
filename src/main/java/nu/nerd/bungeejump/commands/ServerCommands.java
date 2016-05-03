@@ -39,10 +39,7 @@ public class ServerCommands implements CommandExecutor {
 
         if (cmd.getName().equalsIgnoreCase("server")) {
             if (args.length == 1) {
-                boolean success = plugin.switchServer(player, args[0]);
-                if (!success) {
-                    player.sendMessage("Unknown server");
-                }
+                plugin.switchServer(player, args[0]);
                 return true;
             } else {
                 List<String> servers = plugin.getConfiguration().getServers();
