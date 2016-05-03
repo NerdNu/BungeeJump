@@ -23,7 +23,7 @@ public class ServerCommands implements CommandExecutor {
         plugin.getCommandInjector().injectCommand("server", "Switch servers", this);
 
         for (Map.Entry<String, String> entry : plugin.getConfiguration().getAliases().entrySet()) {
-            plugin.getCommandInjector().injectCommand(entry.getKey(), "Switch servers", this);
+            plugin.getCommandInjector().injectCommand(entry.getKey(), String.format("Switch to %s", entry.getKey()), this);
         }
 
     }
