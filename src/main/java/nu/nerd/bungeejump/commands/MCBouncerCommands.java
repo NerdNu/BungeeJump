@@ -2,6 +2,7 @@ package nu.nerd.bungeejump.commands;
 
 
 import nu.nerd.bungeejump.BungeeJump;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -41,7 +42,7 @@ public class MCBouncerCommands implements CommandExecutor {
                 String msg = joinArray(" ", Arrays.copyOfRange(args, 1, args.length));
                 plugin.sendBungeeMessage(player, "MCBouncer", "kick", args[0], msg);
             } else {
-                player.sendMessage("Usage: /kick <player> [message]");
+                player.sendMessage(ChatColor.RED + "Usage: /kick <player> [message]");
             }
             return true;
         }
@@ -54,7 +55,7 @@ public class MCBouncerCommands implements CommandExecutor {
                 }
                 plugin.sendBungeeMessage(player, "MCBouncer", "ban", args[0], msg);
             } else {
-                player.sendMessage("Usage: /ban <player> [message]");
+                player.sendMessage(ChatColor.RED + "Usage: /ban <player> [message]");
             }
             return true;
         }
@@ -63,7 +64,7 @@ public class MCBouncerCommands implements CommandExecutor {
             if (args.length == 1) {
                 plugin.sendBungeeMessage(player, "MCBouncer", "unban", args[0]);
             } else {
-                player.sendMessage("Usage: /unban <player>");
+                player.sendMessage(ChatColor.RED + "Usage: /unban <player>");
             }
             return true;
         }
@@ -72,7 +73,7 @@ public class MCBouncerCommands implements CommandExecutor {
             if (args.length == 1) {
                 plugin.sendBungeeMessage(player, "MCBouncer", "lookup", args[0]);
             } else {
-                player.sendMessage("Usage: /lookup <player>");
+                player.sendMessage(ChatColor.RED + "Usage: /lookup <player>");
             }
             return true;
         }
@@ -82,7 +83,7 @@ public class MCBouncerCommands implements CommandExecutor {
                 String msg = joinArray(" ", Arrays.copyOfRange(args, 1, args.length));
                 plugin.sendBungeeMessage(player, "MCBouncer", "addnote", args[0], msg);
             } else {
-                player.sendMessage("Usage: /addnote <player> <note>");
+                player.sendMessage(ChatColor.RED + "Usage: /addnote <player> <note>");
             }
             return true;
         }
@@ -91,7 +92,7 @@ public class MCBouncerCommands implements CommandExecutor {
             if (args.length == 1) {
                 plugin.sendBungeeMessage(player, "MCBouncer", "delnote", args[0]);
             } else {
-                player.sendMessage("Usage: /delnote <#>");
+                player.sendMessage(ChatColor.RED + "Usage: /delnote <#>");
             }
             return true;
         }

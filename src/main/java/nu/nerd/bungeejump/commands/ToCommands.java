@@ -27,11 +27,11 @@ public class ToCommands implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("to-server")) {
             Player target = plugin.getServer().getPlayer(args[0]);
             if (args.length != 2) {
-                sender.sendMessage("Usage: /to-server <player> <server>");
+                sender.sendMessage(ChatColor.RED + "Usage: /to-server <player> <server>");
                 return true;
             }
             if (target == null) {
-                sender.sendMessage("Could not find player");
+                sender.sendMessage(ChatColor.RED + "Could not find player");
                 return true;
             }
             plugin.switchServer(target, args[1]);
@@ -40,7 +40,7 @@ public class ToCommands implements CommandExecutor {
 
         if (cmd.getName().equalsIgnoreCase("all-to-server")) {
             if (args.length != 1) {
-                sender.sendMessage("Usage: /all-to-server <server>");
+                sender.sendMessage(ChatColor.RED + "Usage: /all-to-server <server>");
                 return true;
             }
             for (Player player : plugin.getServer().getOnlinePlayers()) {
