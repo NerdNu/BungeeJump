@@ -51,10 +51,10 @@ public class BungeeJump extends JavaPlugin {
 
     public void switchServer(Player player, String server) {
         server = server.toLowerCase();
-        for (String s : getConfiguration().getServers()) {
+        for (String s : getConfiguration().getAliases().keySet()) {
             if (s.equals(server)) {
                 getSwitching().put(player.getUniqueId(), server);
-                return;
+                break;
             }
         }
         sendBungeeMessage(player, "Connect", server);

@@ -3,7 +3,6 @@ package nu.nerd.bungeejump;
 import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.HashMap;
-import java.util.List;
 
 
 public class Configuration {
@@ -12,7 +11,6 @@ public class Configuration {
     private BungeeJump plugin;
     private boolean debug;
     private String switchMessage;
-    private List<String> servers;
     private HashMap<String, String> aliases;
 
 
@@ -27,8 +25,7 @@ public class Configuration {
         plugin.saveDefaultConfig();
 
         debug = plugin.getConfig().getBoolean("debug");
-        switchMessage = plugin.getConfig().getString("switchMessage", "§%p has switched to %s");
-        servers = plugin.getConfig().getStringList("servers");
+        switchMessage = plugin.getConfig().getString("switchMessage", "§e%p has switched to %s");
         aliases = new HashMap<String, String>();
 
         ConfigurationSection section = plugin.getConfig().getConfigurationSection("aliases");
@@ -50,11 +47,6 @@ public class Configuration {
 
     public String getSwitchMessage() {
         return switchMessage;
-    }
-
-
-    public List<String> getServers() {
-        return servers;
     }
 
 

@@ -1,11 +1,5 @@
 debug: false
-switch-message: '§%p has switched to %s'
-
-
-servers:
-- lobby
-- pve
-- creative
+switch-message: '§e%p has switched to %s'
 
 
 aliases:

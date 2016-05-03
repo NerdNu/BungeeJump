@@ -6,7 +6,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Map;
 
 
@@ -42,11 +43,13 @@ public class ServerCommands implements CommandExecutor {
                 plugin.switchServer(player, args[0]);
                 return true;
             } else {
-                List<String> servers = plugin.getConfiguration().getServers();
+                Collection<String> servers = plugin.getConfiguration().getAliases().keySet();
                 StringBuilder sb = new StringBuilder();
-                for (String s : servers) {
+                Iterator<String> iterator = servers.iterator();
+                while (iterator.hasNext()) {
+                    String s = iterator.next();
                     sb.append(s);
-                    if (servers.indexOf(s) < servers.size()-1) {
+                    if (iterator.hasNext()) {
                         sb.append("|");
                     }
                 }
