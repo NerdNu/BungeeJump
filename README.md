@@ -2,7 +2,7 @@
 
 Command provider for functions handled by the BungeeCord proxy
 
-## Commands
+## Server Switching Commands
 * `/server` — Replacement for the stock /server command. Suppresses the player switch message when going to a server not listed in the "aliases" block.
 
 * `/to-server <player> <server>` — Admin command to send a player to another server.
@@ -13,10 +13,16 @@ Command provider for functions handled by the BungeeCord proxy
 
 * `bungeejump.admin` — Admin functions
 
+* `bungeejump.mcbouncer.*` — All MCBouncer commands
+
+* `bungeejump.mcbouncer.<command>` — Specific MCBouncer commands, e.g. lookup or kick
+
 
 ## Configuration
 
 * `debug` — Boolean controlling diagnostic logging in console
+
+* `mcbouncer` — Boolean controlling whether the MCBouncer commands will be enabled
 
 * `switch-message` — Message displayed when a player switches server. `%p` will be substituted with the player name and `%s` the server string.
 

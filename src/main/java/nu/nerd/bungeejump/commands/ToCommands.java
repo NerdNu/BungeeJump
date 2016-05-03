@@ -16,17 +16,13 @@ public class ToCommands implements CommandExecutor {
 
     public ToCommands() {
         this.plugin = BungeeJump.getInstance();
-        plugin.getCommandInjector().injectCommand("to-server", "Send a player to another server", this);
-        plugin.getCommandInjector().injectCommand("all-to-server", "Send everyone to another server", this);
+        CommandInjector injector = plugin.getCommandInjector();
+        injector.injectCommand("to-server", "Send a player to another server", "bungeejump.admin", this);
+        injector.injectCommand("all-to-server", "Send everyone to another server", "bungeejump.admin", this);
     }
 
 
     public boolean onCommand(CommandSender sender, Command cmd, String name, String[] args) {
-
-        if (!sender.hasPermission("bungeejump.admin")) {
-            sender.sendMessage(ChatColor.RED + "You don't have permission to do that.");
-            return true;
-        }
 
         if (cmd.getName().equalsIgnoreCase("to-server")) {
             Player target = plugin.getServer().getPlayer(args[0]);

@@ -1,4 +1,5 @@
 debug: false
+mcbouncer: false
 switch-message: '§e%p has switched to %s'
 
 

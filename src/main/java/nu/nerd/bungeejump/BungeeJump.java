@@ -1,6 +1,7 @@
 package nu.nerd.bungeejump;
 
 import nu.nerd.bungeejump.commands.CommandInjector;
+import nu.nerd.bungeejump.commands.MCBouncerCommands;
 import nu.nerd.bungeejump.commands.ServerCommands;
 import nu.nerd.bungeejump.commands.ToCommands;
 import org.bukkit.entity.Player;
@@ -31,6 +32,9 @@ public class BungeeJump extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BungeeJumpListener(), this);
         new ServerCommands();
         new ToCommands();
+        if (getConfiguration().isMcbouncer()) {
+            new MCBouncerCommands();
+        }
     }
 
 

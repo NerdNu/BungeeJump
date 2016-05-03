@@ -10,6 +10,7 @@ public class Configuration {
 
     private BungeeJump plugin;
     private boolean debug;
+    private boolean mcbouncer;
     private String switchMessage;
     private HashMap<String, String> aliases;
 
@@ -24,7 +25,8 @@ public class Configuration {
 
         plugin.saveDefaultConfig();
 
-        debug = plugin.getConfig().getBoolean("debug");
+        debug = plugin.getConfig().getBoolean("debug", false);
+        mcbouncer = plugin.getConfig().getBoolean("mcbouncer", false);
         switchMessage = plugin.getConfig().getString("switchMessage", "§e%p has switched to %s");
         aliases = new HashMap<String, String>();
 
@@ -44,6 +46,10 @@ public class Configuration {
         return debug;
     }
 
+
+    public boolean isMcbouncer() {
+        return mcbouncer;
+    }
 
     public String getSwitchMessage() {
         return switchMessage;

@@ -2,6 +2,7 @@ package nu.nerd.bungeejump.commands;
 
 import nu.nerd.bungeejump.BungeeJump;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.*;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.SimplePluginManager;
@@ -28,10 +29,19 @@ public class CommandInjector {
 
 
     public void injectCommand(String name, String description, CommandExecutor executor) {
+        injectCommand(name, description, null, executor);
+    }
+
+
+    public void injectCommand(String name, String description, String permission, CommandExecutor executor) {
         unregisterCommand(name);
         registerCommand(name);
         if (description != null) {
             plugin.getCommand(name).setDescription(description);
+        }
+        if (permission != null) {
+            plugin.getCommand(name).setPermission(permission);
+            plugin.getCommand(name).setPermissionMessage(ChatColor.RED + "You don't have permission to do that.");
         }
         plugin.getCommand(name).setExecutor(executor);
     }

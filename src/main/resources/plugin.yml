@@ -7,3 +7,24 @@ version: ${project.version}
 permissions:
   bungeejump.admin:
     description: Admin functions
+  bungeejump.mcbouncer.*:
+    description: All MCBouncer commands
+    children:
+      bungeejump.mcbouncer.kick: true
+      bungeejump.mcbouncer.ban: true
+      bungeejump.mcbouncer.unban: true
+      bungeejump.mcbouncer.lookup: true
+      bungeejump.mcbouncer.addnote: true
+      bungeejump.mcbouncer.delnote: true
+  bungeejump.mcbouncer.kick:
+      description: The /kick command
+  bungeejump.mcbouncer.ban:
+    description: The /ban command
+  bungeejump.mcbouncer.unban:
+      description: The /unban command
+  bungeejump.mcbouncer.lookup:
+        description: The /lookup command
+  bungeejump.mcbouncer.addnote:
+        description: The /addnote command
+  bungeejump.mcbouncer.delnote:
+        description: The /delnote command
